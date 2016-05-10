@@ -71,9 +71,9 @@
 (emo-expr-spec "positive" "happySurprise"       0.1 0.4 0.8 2 8)
 (emo-expr-spec "positive" "engaged"             0.1 0.6 1.0 2 8)
 (emo-expr-spec "positive" "surprised"           0.1 0.4 0.6 2 8)
-(emo-expr-spec "imperative"  "recoil"           0.05  0.6 0.9 1 2)
-(emo-expr-spec "imperative"  "sad"              0.05  0.6 0.9 1 2)
-(emo-expr-spec "imperative"  "worry"            0.05  0.6 0.9 1 2)
+(emo-expr-spec "positive"  "recoil"           0.05  0.6 0.9 1 2)
+(emo-expr-spec "positive"  "sad"              0.05  0.6 0.9 1 2)
+(emo-expr-spec "positive"  "worry"            0.05  0.6 0.9 1 2)
 ; bored face tracking
 (emo-expr-spec "bored" "happy"               0.2 0.6 1 2 8)
 (emo-expr-spec "bored" "happy.001"           0.2 0.6 1.0 2 8)
@@ -84,9 +84,9 @@
 (emo-expr-spec "bored" "happySurprise"       0.1 0.4 0.8 2 8)
 (emo-expr-spec "bored" "engaged"             0.1 0.6 1.0 2 8)
 (emo-expr-spec "bored" "surprised"           0.1 0.4 0.6 2 8)
-(emo-expr-spec "bored"    "bored"               0.2 0.4 0.7 3 6)
-(emo-expr-spec "bored"    "sad"                 0.1 0.1 0.3 3 6)
-(emo-expr-spec "bored"    "confused"            0.2 0.1 0.3 2 4)
+(emo-expr-spec "bored"  "recoil"           0.05  0.6 0.9 1 2)
+(emo-expr-spec "bored"  "sad"              0.05  0.6 0.9 1 2)
+(emo-expr-spec "bored"  "worry"            0.05  0.6 0.9 1 2)
 
 ; sleep
 (emo-expr-spec "sleepy" "happy"               0.2 0.6 1.0 2 5)
@@ -184,8 +184,19 @@
 
 ; If bored, then 1/10th of the time, yawn.
 ; Rest of the time, don't do anything.
-(emo-gest-spec "bored"   "yawn-1"  0.1 0.6 0.9 1 1 1 1)
-(emo-gest-spec "bored"   "noop"    0.9 0   0   1 1 1 1)
+(emo-gest-spec "bored" "think-browsUp"        0.05 0.8 1.5 1 1 0.6 1.5)
+(emo-gest-spec "bored" "think-browsUp.001"    0.05 0.8 1.5 1 1 0.6 1.5)
+(emo-gest-spec "bored" "think-browsUp.002"    0.05 0.8 1.5 1 1 0.6 1.5)
+(emo-gest-spec "bored" "think-browsUp.003"    0.05 0.8 1.5 1 1 0.6 1.5)
+(emo-gest-spec "bored" "think-browsDown.00"    0.05 0.8 1.5 1 1 0.6 1.5)
+(emo-gest-spec "bored" "think-browsDown.001"   0.05 0.8 1.5 1 1 0.6 1.5)
+(emo-gest-spec "bored" "think-browsDown.002"   0.05 0.8 1.5 1 1 0.6 1.5)
+(emo-gest-spec "bored" "think-browsDown.003"   0.05 0.8 1.5 1 1 0.6 1.5)
+(emo-gest-spec "bored" "nod-2"    0.1 0.6 1 1 1 0.6 1.5)
+(emo-gest-spec "bored" "nod-3"    0.1 0.8 1 1 1 0.6 1.5)
+(emo-gest-spec "bored" "look-L.UP"    0.1 0.5 0.9 1 1 0.8 1.2)
+(emo-gest-spec "bored" "look-R.UP"    0.1 0.5 0.9 1 1 0.8 1.2)
+
 
 (emo-gest-spec "sleepy"  "blink-sleepy"  1 0.7 1.0 1 1 1 1)
 

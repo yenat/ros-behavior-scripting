@@ -58,9 +58,14 @@
 
 (emo-expr-spec "sleepy"   "amused"        1.0  0.8 1.0 5 15)
 
-(emo-expr-spec "wake-up"  "surprised"     0.45 0.4 0.6 5 15)
-(emo-expr-spec "wake-up"  "happy"         0.2  0.6 0.7 5 15)
-(emo-expr-spec "wake-up"  "irritated"     0.6  0.6 0.9 1  4)
+(emo-expr-spec "wake-up" "happy"               0.2 0.6 1 3 7)
+(emo-expr-spec "wake-up" "happy.001"           0.2 0.6 1.0 3 7)
+(emo-expr-spec "wake-up" "comprehending"       0.1 0.5 0.8 3 7)
+(emo-expr-spec "wake-up" "amused"              0.1 0.5 0.8 3 7)
+(emo-expr-spec "wake-up" "confused"            0.1 0.5 0.8 3 7)
+(emo-expr-spec "wake-up" "happySurprise"       0.1 0.4 0.8 2 7)
+(emo-expr-spec "wake-up" "engaged"             0.1 0.6 1.0 2 7)
+(emo-expr-spec "wake-up" "surprised"           0.1 0.4 0.6 2 7)
 
 ; Used when chatbot is happy
 (emo-expr-spec "neutral-speech"  "happy"         0.2  0.1 0.3 4 8)
@@ -132,7 +137,7 @@
 ; Gestures to use during conversations.
 ; Note that the gesture strengths are reduced from normal.
 ; "thoughtful" is very pronounced, so keep it light.
-(emo-gest-spec "conversing" "thoughtful"  1.0 0.2 0.4 1 1 0.2 0.6)
+(emo-gest-spec "conversing" "noop"  1.0 0.2 0.4 1 1 0.2 0.6)
 ; none-such animations
 ; (emo-gest-spec "conversing" "think-browsUp.001"  0.4 0.7 1.0 1 1 0.6 0.8)
 ; (emo-gest-spec "conversing" "think-browsUp.003"  0.3 0.6 1.0 1 1 0.6 0.8)
@@ -144,13 +149,13 @@
 (emo-gest-spec "chat-negative-shake" "shake-3"  0.9 0.9 0.9 1 1 0.4 0.7)
 (emo-gest-spec "chat-negative-shake" "noop"     0.1 0   0   1 1 0   0  )
 
-(emo-gest-spec "chat-pos-think" "thoughtful"  0.8 0.2 0.4 1 1 0.2 0.6)
+(emo-gest-spec "chat-pos-think" "noop"  0.8 0.2 0.4 1 1 0.2 0.6)
 ; This animation doesn't exist ...
 ; (emo-gest-spec "chat-pos-think" "think-browsUp"  0.8 0.5 0.7 1 1 0.3 0.5)
 (emo-gest-spec "chat-pos-think" "noop"           0.2 0   0   1 1 0   0  )
 
 ; Will do negative by doig two repeats, subtle and fast.
-(emo-gest-spec "chat-neg-think" "thoughtful"  0.8 0.1 0.2 2 2 0.5 0.9)
+(emo-gest-spec "chat-neg-think" "noop"  0.8 0.1 0.2 2 2 0.5 0.9)
 ; This animation doesn't exist ...
 ; (emo-gest-spec "chat-neg-think" "think-browsDown.003"  0.8 0.5 0.7 1 1 0.3 0.5)
 (emo-gest-spec "chat-neg-think" "noop"                 0.2 0   0   1 1 0   0  )
@@ -168,7 +173,6 @@
 (emo-gest-spec "imperative"   "nod-3"         0.1 0.8 1.0 1 1 1 1)
 (emo-gest-spec "imperative"   "shake-2"       0.1 0.8 1.0 1 1 1 1)
 (emo-gest-spec "imperative"   "shake-3"       0.1 0.8 1.0 1 1 1 1)
-(emo-gest-spec "imperative"   "thoughtful"    0.1 0.2 0.4 1 1 1 1)
 (emo-gest-spec "imperative"   "yawn-1"        0.1 0.6 0.9 1 1 1 1)
 
 ; --------------------------------------------------------
@@ -199,8 +203,8 @@
 (State (Schema "time_since_last_gesture_max") (Number 10))
 
 ; Specify how long to hold off between making facial expressions.
-(State (Schema "time_since_last_expr_min") (Number 6.0))
-(State (Schema "time_since_last_expr_max") (Number 10.0))
+(State (Schema "time_since_last_expr_min") (Number 4))
+(State (Schema "time_since_last_expr_max") (Number 7))
 
 ; If no one has said anything after 40-80 seconds, say something.
 (State (Schema "silence_min") (Number 40))

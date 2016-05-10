@@ -244,7 +244,6 @@
 				(Equal
 					(DefinedSchema "New departures")
 					(Get (State eye-contact-state (Variable "$x"))))
-				(DefinedPredicate "Show frustrated expression")
 				(DefinedPredicate "return to neutral")
 			)
 			;; Were we interacting with someone else?  If so, then
@@ -280,7 +279,7 @@
 		; i.e. if are being ignored, then say something.
 ;		(SequentialOr
 ;			(SequentialAnd
-;				(DefinedPredicate "Silent too long")0
+;				(DefinedPredicate "Silent too long")
 ;				(Evaluation (GroundedPredicate "scm: print-msg")
 ;					(ListLink (Node "--- Everyone is ignoring me!!!")))
 ;				(Put (DefinedPredicate "Publish behavior")

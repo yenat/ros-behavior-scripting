@@ -171,6 +171,22 @@
 	(DefinedPredicate "chatbot stopped listening?")
 	(Equal (Set chat-listen-stop)
 		(Get (State chat-state (Variable "$x")))))
+		
+		
+(DefineLink
+    (DefinedSchema "Types of sound")
+    (Arity
+        (Get
+            (TypedVariable (Variable "$deci") (Type "NumberNode"))
+            (Evaluation (Predicate "sound")
+                (ListLink (Variable "$deci"))))))
+    
+    
+(DefineLink
+    (DefinedPredicateNode "Heard loud voice")
+    (GreaterThanLink
+        (DefinedSchemaNode "Types of sound")
+        (NumberNode 90)))
 
 ; Chat affect. Is the robot happy about what its saying?
 ; Right now, there are only two affects: happy and not happy.
@@ -505,7 +521,7 @@
 			(Get (State eye-contact-state (Variable "$x")))
 			(SetLink no-interaction)))
 		(True (Put
-			(Evaluation (GroundedPredicate "scm:look-at-face")
+			(Evaluation (GroundedPredicate "py:look_at_face")
 				(ListLink (Variable "$face")))
 			(Get (State eye-contact-state (Variable "$x")))))
 	))
@@ -530,7 +546,7 @@
 (DefineLink
 	(DefinedPredicate "return to neutral")
 	(SequentialAnd
-		(Evaluation (GroundedPredicate "scm:look-at-face")
+		(Evaluation (GroundedPredicate "py:look_at_face")
 			(ListLink neutral-face))
 		(True (Put
 			(State eye-contact-state (Variable "$face-id"))

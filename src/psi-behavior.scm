@@ -58,11 +58,14 @@
 
 (DefinedLink
     (DefinedSchema "say whoa!")
-    (Put
-    (DefinedPredicate "Heard Loud Voice")
+    
     (Evaluation (GroundedPredicate "py:AudioEnergy")
     (ListLink (Variable "$deci"))
-    )))
+    ))
+(cog-execute!
+  (Put
+      (DefinedSchema "say whoa!")
+      (NumberNode 90)))
     
 (psi-rule (list (NotLink (DefinedPredicate "Skip Interaction?"))
 		(DefinedPredicate "Someone requests interaction?"))

@@ -175,11 +175,9 @@
 		
 (DefineLink
     (DefinedSchema "Types of sound")
-    (Arity
-        (Get
-            (TypedVariable (Variable "$deci") (Type "NumberNode"))
+    
             (Evaluation (Predicate "sound")
-                (ListLink (Variable "$deci"))))))
+                (ListLink (Variable "$deci"))))
     
     
 (DefineLink

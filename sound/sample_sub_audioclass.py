@@ -26,8 +26,11 @@ class AudioStrength:
     rospy.Subscriber("/opencog/suddenchange", String, self.GetSuddenClass)
 
   def AudioEnergy(self, value):
-    deci = "(EvaluationLink (PredicateNode \"Decibel value\") " + \
-		       "(ListLink (NumberNode \"" + str(value) + "\")))\n"
+    # A StateLink is used b/c evaluation of psi-rules should only depend on
+    # the most value.
+    deci = '''(StateLink
+                (AnchorNode "Decibel value")
+                (ListLink (NumberNode {})))\n'''.format(value)
 
     netcat(self.hostname, self.port, deci + "\n")
 
@@ -113,6 +116,7 @@ class AudioStrength:
 if __name__ == '__main__':
     global d
     d =deque()
+
     try:
         rospy.init_node('AudioClass', anonymous=True)
         AudioStrength()

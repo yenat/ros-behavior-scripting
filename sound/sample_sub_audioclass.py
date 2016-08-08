@@ -3,10 +3,8 @@ from collections import deque
 import rospy
 import math
 import time
-from audio_common_msgs.msg import AudioData
 from std_msgs.msg import String
 from netcat import netcat
-from opencog.atomspace import *
 
 '''
    This is a sample subscriber written to check the class of AudioInput.

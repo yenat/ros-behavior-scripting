@@ -171,20 +171,6 @@
 	(DefinedPredicate "chatbot stopped listening?")
 	(Equal (Set chat-listen-stop)
 		(Get (State chat-state (Variable "$x")))))
-		
-		
-(DefineLink
-    (DefinedSchema "Types of sound")
-    
-            (Evaluation (Predicate "sound")
-                (ListLink (Variable "$deci"))))
-    
-    
-(DefineLink
-    (DefinedPredicateNode "Heard loud voice")
-    (GreaterThanLink
-        (DefinedSchemaNode "Types of sound")
-        (NumberNode 90)))
 
 ; Chat affect. Is the robot happy about what its saying?
 ; Right now, there are only two affects: happy and not happy.
@@ -251,6 +237,16 @@
 		(True (Put (State heard-sound (Variable "$x")) heard-nothing))
 	))
 
+;; Loud sound value.
+(define loud-sound  (AnchorNode "Sudden sound change value"))
+(State loud-sound (Number 0)) ; There isn't any sudden change in sound Decibel
+
+;; Return true if a loud voice is heard
+(DefineLink
+	(DefinedPredicate "Heard Loud Voice?")
+	(GreaterThan
+		(Get (State (Schema prob-name) (Variable "$x")))
+		(Number 0)))
 
 ; --------------------------------------------------------
 ; Time-stamp-related stuff.

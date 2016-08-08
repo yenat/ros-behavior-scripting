@@ -245,7 +245,7 @@
 (DefineLink
 	(DefinedPredicate "Heard Loud Voice?")
 	(GreaterThan
-		(Get (State (Schema prob-name) (Variable "$x")))
+		(Get (State loud-sound (Variable "$x")))
 		(Number 0)))
 
 ; --------------------------------------------------------

@@ -751,12 +751,9 @@
 	))
 
 ; ----------------------------------------------------------------------
-;; Actions related with sound
-(DefinedLink
-    (DefinedSchema "say whoa!")
-    (Put
-    (DefinedPredicate "Heard Loud Voice")
-    (Evaluation (GroundedPredicate "py:AudioEnergy")
-    (ListLink (Variable "$deci"))
-    )))
+;; Actions for loud sound
+(DefineLink
+	(DefinedPredicate "Say whoa!")
+    (Put (DefinedPredicate "Say") (Node "whoa!")))
+
 ; ----------------------------------------------------------------------

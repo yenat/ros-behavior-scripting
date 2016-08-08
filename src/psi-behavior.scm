@@ -37,6 +37,7 @@
 (pred-2-schema "Listening ongoing")
 (pred-2-schema "Listening ended")
 (pred-2-schema "Keep alive")
+(pred-2-schema "Say whoa!")
 ;;
 ;(DefineLink (DefinedPredicateNode "do-noop") (True))
 ;(pred-2-schema "do-noop")
@@ -118,7 +119,7 @@
 
 (psi-rule (list (SequentialAnd (NotLink (DefinedPredicate "Skip Interaction?"))
         (DefinedPredicate "Heard Loud Voice?")))
-    (DefinedSchemaNode "say whoa!")
+    (DefinedSchemaNode "Say whoa!")
     speech-demand-satisfied (stv 1 1) speech-demand)
 
 ; ----------------------------------------------------------------------

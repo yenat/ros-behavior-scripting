@@ -95,21 +95,12 @@ class AudioStrength:
     return self.Decibel
 
   def GetSuddenClass(self, msg):
-    try:
-        change = msg.data
+    print "sudden sound change value {}".format(msg.data)
+    loud = '''(StateLink
+                (AnchorNode "Sudden sound change value")
+                (NumberNode {}))'''.format(msg.data)
 
-        if int(change) > 1:
-            print 'sudden change'
-            l = "(cog-evaluate! (EvaluationLink (DefinedPredicateNode \"Show expression\")" + \
-       "(ListLink (ConceptNode \"surprised\") (NumberNode 2) (NumberNode 0.5))))\n"
-
-            netcat(self.hostname, self.port, l + "\n")
-
-        else:
-            self.AudioEnergy(self.Decibel)
-
-    except ArithmeticError as e:
-        print(e)
+    netcat(self.hostname, self.port, loud + "\n")
 
 if __name__ == '__main__':
     global d

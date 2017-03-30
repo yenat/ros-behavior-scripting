@@ -27,6 +27,7 @@ from face_track import FaceTrack
 from sound_track import SoundTrack
 from room_brightness import RoomBrightness
 from saliency_track import SaliencyTrack
+from destin_OC import DestinOC
 
 
 rospy.init_node("OpenCog_ROS_bridge")
@@ -39,6 +40,7 @@ ft = FaceTrack()
 st = SoundTrack()
 br = RoomBrightness()
 sl = SaliencyTrack()
+dc = DestinOC()
 
 try:
 	rospy.spin()

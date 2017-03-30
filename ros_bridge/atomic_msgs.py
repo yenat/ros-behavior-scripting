@@ -156,3 +156,12 @@ class AtomicMsgs:
 		room = '(StateLink (AnchorNode "luminance")' +\
 			' (NumberNode ' + str(bright) +'))\n'
 		netcat(self.hostname,self.port,room)
+		
+	#streaming out state of encoder
+	def destin_status(self,state,topic):
+	    
+		ae1= '(StateLink (AnchorNode "status of encoder")' +\
+			 "(ArrayNode \""+  str(state) + "\"))\n"
+		print ae1
+		netcat(self.hostname,self.port,ae1)
+		
